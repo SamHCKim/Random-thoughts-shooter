@@ -2,7 +2,8 @@ import { formatDistanceToNow, format } from 'date-fns';
 import { ko } from 'date-fns/locale';
 
 export function formatRelative(iso: string): string {
-  return formatDistanceToNow(new Date(iso), { addSuffix: true, locale: ko });
+  const date = new Date(Math.min(new Date(iso).getTime(), Date.now()));
+  return formatDistanceToNow(date, { addSuffix: true, locale: ko });
 }
 
 export function formatAbsolute(iso: string): string {
