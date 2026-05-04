@@ -12,7 +12,7 @@ export function createClient() {
         setAll: () => {},
       },
       global: {
-        fetch: (url, options = {}) =>
+        fetch: (url: RequestInfo | URL, options: RequestInit = {}) =>
           fetch(url, { ...options, cache: 'no-store' }),
       },
     }
