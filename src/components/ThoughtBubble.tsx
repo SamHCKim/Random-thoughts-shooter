@@ -23,8 +23,8 @@ export default function ThoughtBubble({ thought }: ThoughtBubbleProps) {
   const mounted = useMounted();
   const color = pickBubbleColor(thought.nickname);
   const bgClass = BUBBLE_COLOR_CLASS[color];
-  const absolute = formatAbsolute(thought.created_at);
-  const label = mounted ? formatRelative(thought.created_at) : absolute;
+  const absolute = mounted ? formatAbsolute(thought.created_at) : undefined;
+  const label = mounted ? formatRelative(thought.created_at) : ' ';
 
   return (
     <div className={`flex flex-col items-start mb-4 ${thought.pending ? 'opacity-60' : 'opacity-100'}`}>
